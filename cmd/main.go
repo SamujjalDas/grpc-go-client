@@ -31,6 +31,8 @@ func main() {
 	}
 
 	runSayHello(helloAdapter, "Samujjal Das")
+	runSayManyHellos(helloAdapter, "Samujjal Das")
+	runSayHelloToEveryone(helloAdapter, []string{"Ram", "Sahyam", "John", "Drake"})
 }
 
 func runSayHello(adapter *hello.HelloAdapter, name string) {
@@ -41,4 +43,12 @@ func runSayHello(adapter *hello.HelloAdapter, name string) {
 	}
 
 	log.Println(greet.Greet)
+}
+
+func runSayManyHellos(adapter *hello.HelloAdapter, name string) {
+	adapter.SayManyHellos(context.Background(), name)
+}
+
+func runSayHelloToEveryone(adapter *hello.HelloAdapter, names []string) {
+	adapter.SayHelloToEveryone(context.Background(), names)
 }
